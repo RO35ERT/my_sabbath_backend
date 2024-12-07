@@ -2,12 +2,14 @@ const express = require("express");
 const db = require("./models/");
 const bodyParser = require('body-parser');
 const authRoutes = require("./routes/AuthRoutes");
+const announcementRoutes = require("./routes/AnnouncementRoute");
 const app = express();
 
-const PORT = 3000;
+const PORT = 3030;
 app.use(bodyParser.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/announcements", announcementRoutes);
 app.get("/", (req, res) => {
   res.send("Hello, welcome to My Sabbath Backend!");
 });
