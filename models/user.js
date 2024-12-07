@@ -30,6 +30,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false, // Password is required
       },
+      role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "member", // Default role is 'member'
+        validate: {
+          isIn: [["member", "admin"]], // Ensures only valid roles are used
+        },
+      },
     },
     {
       sequelize,
