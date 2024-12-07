@@ -1,5 +1,5 @@
 'use strict';
-const { Model } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Announcement extends Model {
     static associate(models) {
@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       date_posted: {
         type: DataTypes.DATE,
         allowNull: true,
+        defaultValue: DataTypes.NOW,  // Set default value to the current date and time
       },
       author: {
         type: DataTypes.STRING,
@@ -32,7 +33,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Announcement',
-      tableName: 'announcements', // Optional if table name differs
     }
   );
   return Announcement;
