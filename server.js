@@ -4,11 +4,12 @@ const bodyParser = require('body-parser');
 const authRoutes = require("./routes/AuthRoutes");
 const announcementRoutes = require("./routes/AnnouncementRoute");
 const audioRoutes = require("./routes/AudioRoutes");
+const path = require('path');
 const app = express();
 
 const PORT = 3030;
 app.use(bodyParser.json());
-
+app.use('/uploads/audio', express.static(path.join(__dirname, 'uploads/audio')));
 app.use("/api/auth", authRoutes);
 app.use("/api/announcements", announcementRoutes);
 app.use("/api/audio", audioRoutes);
