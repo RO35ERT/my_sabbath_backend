@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require("./routes/AuthRoutes");
 const announcementRoutes = require("./routes/AnnouncementRoute");
 const audioRoutes = require("./routes/AudioRoutes");
+const videoRoutes = require("./routes/VideoRoutes");
 const path = require('path');
 const app = express();
 
@@ -13,6 +14,7 @@ app.use('/uploads/audio', express.static(path.join(__dirname, 'uploads/audio')))
 app.use("/api/auth", authRoutes);
 app.use("/api/announcements", announcementRoutes);
 app.use("/api/audio", audioRoutes);
+app.use("/api/video", videoRoutes);
 app.get("/", (req, res) => {
   res.send("Hello, welcome to My Sabbath Backend!");
 });
