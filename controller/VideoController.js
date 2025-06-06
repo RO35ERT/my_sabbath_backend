@@ -5,7 +5,9 @@ exports.uploadVideo = async (req, res) => {
     const { posted_by, title } = req.body;
     const file_path = req.file.path;
 
-    const newAudio = await Audio.create({
+    console.log(file_path);
+    
+    const newAudio = await Video.create({
       posted_by,
       title,
       file_path,
